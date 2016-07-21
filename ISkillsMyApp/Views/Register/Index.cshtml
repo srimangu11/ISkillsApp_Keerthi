@@ -119,14 +119,6 @@
         <div class="wizard-step">
 
             
-            <div class="editor-label">
-                @Html.LabelFor(m => m.CustomerID)
-            </div>
-
-            <div class="editor-field">
-                @Html.EditorFor(m => m.CustomerID)
-                @Html.ValidationMessageFor(m => m.CustomerID)
-                </div>
 
                 <div class="editor-label">
                     @Html.LabelFor(m => m.FirstName)
@@ -271,6 +263,7 @@
             </div>
 
             <div class="editor-field">
+               
                 @Html.EditorFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
 

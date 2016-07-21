@@ -12,7 +12,7 @@ namespace ISkillsMyApp.Models
     {
         [Key]
 
-        [Required]
+       
         public int CustomerID { get; set; }
         [Required]
         [StringLength(10, MinimumLength = 3, ErrorMessage = "Please enter First name length between 3 to 10 characters to proceed")]
@@ -52,6 +52,9 @@ namespace ISkillsMyApp.Models
         public string CardNumber { get; set; }
         public string ExpirationMonth { get; set; }
         public string ExpirationYear { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
 

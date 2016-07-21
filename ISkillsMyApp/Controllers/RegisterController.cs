@@ -24,7 +24,7 @@ namespace ISkillsMyApp.Controllers
 
 
             Customer _adddb = new Customer();
-            _adddb.CustomerID = cust.CustomerID;
+            
             _adddb.FirstName = cust.FirstName;
             _adddb.LastName = cust.LastName;
             _adddb.Address = cust.Address;
