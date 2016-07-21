@@ -1,18 +1,52 @@
-﻿
+﻿@model ISkillsMyApp.Models.Customer
+
 @{
     ViewBag.Title = "Online Books Store Login";
 }
 
 <!DOCTYPE html>
 
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
+
 <body>
-    <div> 
-        Login
+  
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    {
+    <div class="Editor-Label"> 
+        @Html.LabelFor(m => m.Email)
     </div>
+    
+    <div class="Editor-field">
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div class="Editor-Label">
+        @Html.LabelFor(m => m.Password)
+    </div>
+
+    <div class="Editor-field">
+        @Html.EditorFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    
+    <button>Submit</button>
+    
+}
 </body>
 </html>
+    
+
+
+
+

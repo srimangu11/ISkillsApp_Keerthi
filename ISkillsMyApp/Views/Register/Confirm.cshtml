@@ -1,0 +1,76 @@
+﻿@model ISkillsMyApp.Models.Customer
+
+@if (!ViewContext.ViewData.ModelState.IsValid)
+{
+    <h2>The following errors were found:</h2>
+    @Html.ValidationSummary()
+}
+else
+{
+    <h2>
+        Confirm
+    </h2>
+    <h3>
+        Please confirm that your information is correct:
+    </h3>
+    <fieldset>
+            
+            <div class="display-label">
+                FirstName
+            </div>
+            <div class="display-field">@Model.FirstName</div>
+            <div class="display-label">
+                LastName
+            </div>
+            <div class="display-field">@Model.LastName</div>
+            <div class="display-label">
+                Address 
+            </div>
+            <div class="display-field">@Model.Address</div>
+
+            <div class="display-label">
+                CardNumber
+            </div>
+            <div class="display-field">@Model.CardNumber</div>
+
+
+            <div class="display-label">
+                BillingCity
+            </div>
+            <div class="display-field">@Model.BillingCity</div>
+
+            <div class="display-label">
+                BillingState
+            </div>
+            <div class="display-field">@Model.BillingState</div>
+
+            <div class="display-label">
+                BillingPostalCode
+            </div>
+            <div class="display-field">@Model.BillingPostalCode</div>
+
+            
+            
+
+            <div class="display-label">
+                Phone
+            </div>
+            <div class="display-field">@Model.Phone</div>
+
+            <div class="display-label">
+                Email
+            </div>
+            <div class="display-field">@Model.Email</div>
+
+            
+
+            <div class="display-label">
+                Password
+            </div>
+            <div class="display-field">@Model.Password</div>
+
+            
+                
+    </fieldset>
+    
+}
