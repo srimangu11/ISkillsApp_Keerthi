@@ -3,7 +3,7 @@ namespace ISkillsMyApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -21,14 +21,23 @@ namespace ISkillsMyApp.Migrations
                 c => new
                     {
                         CustomerID = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Address = c.String(),
+                        FirstName = c.String(nullable: false, maxLength: 10),
+                        LastName = c.String(nullable: false, maxLength: 10),
+                        Address = c.String(nullable: false),
                         City = c.String(),
                         State = c.String(),
                         PostalCode = c.String(),
                         Country = c.String(),
-                        Phone = c.String(),
+                        Phone = c.String(nullable: false),
+                        Email = c.String(nullable: false),
+                        BillingAddress = c.String(),
+                        BillingCity = c.String(),
+                        BillingState = c.String(),
+                        BillingPostalCode = c.String(),
+                        CardNumber = c.String(),
+                        ExpirationMonth = c.String(),
+                        ExpirationYear = c.String(),
+                        Password = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.CustomerID);
             
@@ -39,6 +48,10 @@ namespace ISkillsMyApp.Migrations
                         OrderID = c.Int(nullable: false, identity: true),
                         CustomerID = c.Int(nullable: false),
                         OrderDate = c.DateTime(nullable: false),
+                        ShippingAddress = c.String(),
+                        ShippingState = c.String(),
+                        ShippingCity = c.String(),
+                        ShippingPostalCode = c.String(),
                     })
                 .PrimaryKey(t => t.OrderID)
                 .ForeignKey("dbo.Customer", t => t.CustomerID, cascadeDelete: true)

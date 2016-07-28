@@ -76,16 +76,19 @@ namespace ISkillsMyApp.Controllers
         {
             return View(new BillingInfo());
         }
-
+       
         public PartialViewResult CartWidget(ShoppingCartModel cart)
         {
             if (Session["Cart"] != null)
             {
                 cart = (ShoppingCartModel)Session["Cart"];
+
             }
+            
             return PartialView(cart);
         }
 
+       
         [HttpPost]
         public ActionResult BillingInfo(BillingInfo BillingInfo)
         {

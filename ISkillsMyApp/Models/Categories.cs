@@ -9,8 +9,8 @@ namespace ISkillsMyApp.Models
     public class Categories
     {
         [Key]
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
+        public  int  CategoryID { get; set; }
+        public string  CategoryName { get; set; }
       
     }
 }

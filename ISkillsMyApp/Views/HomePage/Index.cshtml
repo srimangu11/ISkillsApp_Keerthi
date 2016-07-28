@@ -1,27 +1,55 @@
 ﻿
+
+@model ISkillsMyApp.ViewModels.vmforCat
+
 @{
     ViewBag.Title = "Online Books Store HomePage";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <h2>Building Ecommerce apps</h2>
-    <p>
-        This is a demo Ecommerce app
-    </p>
-    <p>
-        This has Shopping cart with checkout options and details come with all other things so wanna see the taste of this app....
-    </p>
-    <ul class="list">
-        <li>Lets see the demo</li>
-        <li>Using MVC</li>
-        <li>We will work with EF</li>
-    </ul>
-</body>
-</html>
+
+<h2>Index</h2>
+@using(Html.BeginForm())
+{
+
+<text>Categories:</text>
+    <br />
+
+    @Html.DropDownList("catlist", new SelectList(Model.Categories, "CategoryID", "CategoryName"), "---Select Category---", new {onchange = "this.form.submit();"})
+    <br />
+
+    <input id="btnget" type="submit" name="command" value="Productlist" />
+
+
+
+    if(Model.Product!=null)
+
+    {
+        <table>
+            <tr>
+                <th>
+                    Image
+                </th>
+                <th>ProductName</th>
+                <th> Description</th>
+                <th> Price </th>
+                <th> Details </th>
+            </tr>
+
+@foreach (var item in Model.Product)
+           {
+                <tr>
+                    <td> @item.Image </td>
+                    <td> @item.ProductName</td>
+                    <td> @item.Description</td>
+                    <td> @item.Price </td>
+                    <td> @item.Details </td>
+                </tr>
+           }
+        </table>
+    }
+
+
+
+    
+    }
 
