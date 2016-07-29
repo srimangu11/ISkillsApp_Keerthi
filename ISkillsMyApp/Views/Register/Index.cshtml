@@ -6,13 +6,9 @@
 }
 
 <h1>Registration Page</h1>
-
-<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery-3.1.0.min.js"></script>
+@*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
 <script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery-3.0.0.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
 <script type="text/javascript">
     $(function () {
 
@@ -109,56 +105,56 @@
 
 
 
-@using(Html.BeginForm())
+@using (Html.BeginForm())
 {
-   
-   
-     @Html.ValidationSummary(true)
-    
+
+
+    @Html.ValidationSummary(true)
+
     <fieldset>
         <div class="wizard-step">
 
-            
-
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.FirstName)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.FirstName)
-                    @Html.ValidationMessageFor(m => m.FirstName)
-
-                </div>
-
-                <div class="editor-label">
-
-                    @Html.LabelFor(m => m.LastName)
-
-                </div>
-
-                <div class="editor-field">
-
-                    @Html.EditorFor(m => m.LastName)
-                    @Html.ValidationMessageFor(m => m.LastName)
-
-                </div>
 
 
+            <div class="editor-label">
+                @Html.LabelFor(m => m.FirstName)
+            </div>
 
-                <div class="editor-label">
-
-                    @Html.LabelFor(m => m.Address)
-
-                </div>
-
-                <div class="editor-field">
-
-                    @Html.EditorFor(m => m.Address)
-                    @Html.ValidationMessageFor(m => m.Address)
-
-                </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.FirstName)
+                @Html.ValidationMessageFor(m => m.FirstName)
 
             </div>
+
+            <div class="editor-label">
+
+                @Html.LabelFor(m => m.LastName)
+
+            </div>
+
+            <div class="editor-field">
+
+                @Html.EditorFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+
+            </div>
+
+
+
+            <div class="editor-label">
+
+                @Html.LabelFor(m => m.Address)
+
+            </div>
+
+            <div class="editor-field">
+
+                @Html.EditorFor(m => m.Address)
+                @Html.ValidationMessageFor(m => m.Address)
+
+            </div>
+
+        </div>
 
         <div class="wizard-step">
 
@@ -239,7 +235,7 @@
 
             </div>
 
-            </div>
+        </div>
 
         <div class="wizard-step">
 
@@ -263,7 +259,7 @@
             </div>
 
             <div class="editor-field">
-               
+
                 @Html.EditorFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
 
@@ -274,7 +270,7 @@
                 confirmpassword
                 <br>
                 <input type="Password" id="txtConfirmPassword" />
-          </div>
+            </div>
 
         </div>
 
@@ -282,16 +278,16 @@
 
         </div>
 
-            <p>
-                <input type="button" id="back-step" name="back-step" value="< Back" />
-                <input type="button" id="next-step" name="next-step" value="Next >" />
-                
-            </p>
+        <p>
+            <input type="button" id="back-step" name="back-step" value="< Back" />
+            <input type="button" id="next-step" name="next-step" value="Next >" />
+
+        </p>
 
 
 
-</fieldset>
-               
+    </fieldset>
+
 }
 
 <div>

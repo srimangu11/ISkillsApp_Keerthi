@@ -1,5 +1,5 @@
 ﻿using ISkillsMyApp.Models;
-using ISkillsMyApp.ViewModels;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,43 +11,38 @@ namespace ISkillsMyApp.Controllers
     public class HomePageController : Controller
     {
         // GET: HomePage
-       
-        ISkillsContext db = new ISkillsContext();
-        vmforCat vm = new vmforCat();
-       BusinessFlow flow = new BusinessFlow();
-       
-        public ActionResult Index()
+
+        ISkillsContext database = new ISkillsContext();
+        private const int PAGE_SIZE = 3;
+        // GET: Shop
+        public ActionResult Index(int page = 1, int categoryID = 0, string SearchString = "")
         {
-
-
-            vm.Categories = from e in db.Categories
-                            select new CategoriesListVM
-                            {
-                                CategoryID = e.CategoryID,
-                                CategoryName = e.CategoryName
-
-
-                            };
-
-            return View(vm);
-
+            return View(Getmodel(page, categoryID));
+        }
+        [HttpPost]
+        public ActionResult Index(ProductsModel productsmodel)
+        {
+            return View(Getmodel(1, productsmodel.CategoryID));
         }
 
-
-        [HttpPost]
-            public ActionResult Index(String catlist , string command)
-
+        private ProductsModel Getmodel(int page, int categoryID)
         {
-            bool getproductlist = false;
-            if(command == "Productlist")
+            var data = database.Products.Select(p => p).Where(p => categoryID == 0 || p.CategoryID == categoryID)
+               
+                .OrderBy(p => p.ProductName).Skip((page - 1) * PAGE_SIZE).Take(PAGE_SIZE);
+            ProductsModel model = new ProductsModel
             {
-                getproductlist = true;
-            }
-            vm = flow.getInformation(catlist, getproductlist);
-
-
-            return View(vm);
-            
+                Products = data,
+                Pagination = new PaginationModel
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PAGE_SIZE,
+                    TotalItems = categoryID == 0 ?
+                    database.Products.Count() : database.Products.Select(p => p).Where(p => p.CategoryID == categoryID).Count()
+                },
+                CategoryID = categoryID
+            };
+            return model;
         }
     }
 }

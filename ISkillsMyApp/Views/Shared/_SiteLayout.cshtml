@@ -11,7 +11,9 @@
 <body>
     <div class="navbar navbar-inverse" role="navigation"> 
         <h1 id="header" class="navbar-text h1">Online Books Store</h1>
+@if (Session["LogedUserID"] != null) { 
         @Html.Action("CartWidget", "ShoppingCart")
+}
     </div>
 
     <div id="main" class="row panel">
